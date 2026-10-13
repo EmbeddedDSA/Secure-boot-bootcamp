@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="description" content="Live progress dashboard for the secure boot course.">
+<title>Secure Boot Bootcamp — Dashboard</title>
+<style>
+:root {
+  --bg: #fbfaf7; --surface: #ffffff; --surface-2: #f1efe9; --border: #dcd8cf;
+  --text: #1d1c1a; --text-2: #4a4741; --muted: #77736b;
+  --accent: #1f5fae; --accent-soft: #e3ecf8;
+  --good: #2e7d32; --warn: #a15c00; --bad: #b3261e;
+  --locked: #8a867d; --code-bg: #f4f2ed;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #15161a; --surface: #1d1f24; --surface-2: #262930; --border: #363a43;
+    --text: #ebe9e4; --text-2: #c2bfb8; --muted: #8f8b83;
+    --accent: #7fb0f0; --accent-soft: #23314a;
+    --good: #7cc47f; --warn: #e3a64f; --bad: #f08a80;
+    --locked: #7a776f; --code-bg: #20232a;
+  }
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0; background: var(--bg); color: var(--text);
+  font: 16px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Arial, sans-serif;
+}
+main { max-width: 980px; margin: 0 auto; padding: 24px 16px 64px; }
+h1 { font-size: 1.9rem; line-height: 1.2; margin: 0 0 4px; }
+h2 { font-size: 1.35rem; margin: 40px 0 12px; padding-top: 8px; border-top: 1px solid var(--border); }
+h3 { font-size: 1.1rem; margin: 24px 0 8px; }
+a { color: var(--accent); }
+.meta { color: var(--muted); font-size: .9rem; margin: 0 0 16px; }
+.home { display: inline-block; margin-bottom: 16px; font-size: .9rem; }
+nav.toc { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 12px 16px; margin: 16px 0 8px; }
+nav.toc ol { margin: 4px 0 0; padding-left: 20px; }
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 14px 16px; margin: 12px 0; }
+.scroll { overflow-x: auto; max-width: 100%; }
+table { border-collapse: collapse; width: 100%; font-size: .95rem; }
+th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--border); vertical-align: top; }
+th { background: var(--surface-2); font-weight: 600; white-space: nowrap; }
+td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
+pre { background: var(--code-bg); border: 1px solid var(--border); border-radius: 6px; padding: 12px; overflow-x: auto; font-size: .88rem; line-height: 1.45; }
+code { font-family: ui-monospace, "Cascadia Code", "SF Mono", Menlo, Consolas, "DejaVu Sans Mono", monospace; font-size: .92em; }
+.pill { display: inline-block; padding: 1px 10px; border-radius: 999px; font-size: .8rem; font-weight: 600; border: 1px solid currentColor; white-space: nowrap; }
+.pill.locked { color: var(--locked); }
+.pill.in_progress { color: var(--warn); }
+.pill.passed { color: var(--good); }
+.pill.not_started { color: var(--locked); }
+.pill.complete { color: var(--good); }
+.pill.pending { color: var(--warn); }
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; }
+.stat { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 12px 14px; }
+.stat .k { color: var(--muted); font-size: .85rem; }
+.stat .v { font-size: 1.6rem; font-weight: 650; font-variant-numeric: tabular-nums; }
+.note { border-left: 3px solid var(--accent); background: var(--accent-soft); padding: 10px 14px; border-radius: 0 6px 6px 0; margin: 12px 0; }
+.empty { color: var(--muted); font-style: italic; }
+svg text { fill: var(--text-2); font-family: inherit; }
+</style>
+</head>
+<body>
+<main>
+
+<h1>Secure Boot Bootcamp — Dashboard</h1>
+<p class="meta">Last updated: 2026-10-14</p>
+<nav class="toc" aria-label="Contents"><strong>Contents</strong><ol><li><a href="#status">Status</a></li><li><a href="#modules">Modules</a></li><li><a href="#scores">Grill average per module</a></li><li><a href="#queue">Spaced-repetition queue</a></li><li><a href="#labs">Labs</a></li><li><a href="#documents">Documents</a></li></ol></nav>
+
+<p>Sixteen-week course in embedded systems security and secure boot. Contract: <code>CLAUDE.md</code>.
+Plan: <a href="docs/syllabus.html">syllabus</a>.</p>
+<h2 id="status">Status</h2>
+<div class="stats">
+<div class="stat"><div class="k">Week</div><div class="v">1 / 16</div></div>
+<div class="stat"><div class="k">Current module</div><div class="v">M1</div></div>
+<div class="stat"><div class="k">Labs complete</div><div class="v">0 / 2</div></div>
+<div class="stat"><div class="k">Overall grill avg</div><div class="v">&ndash;</div></div>
+<div class="stat"><div class="k">Repetition due now</div><div class="v">0</div></div>
+</div>
+<p class="meta">Labs counted are those defined so far; later modules add more as they unlock.</p>
+<h2 id="modules">Modules</h2>
+<p>A module passes only when every lab runs, the grill average is at least 2.5, and the 20-question oral exam averages at least 2.5.</p>
+<div class="scroll"><table><thead><tr><th class="num">#</th><th>Module</th><th>Weeks</th><th>Status</th><th class="num">Grill avg (n)</th></tr></thead><tbody><tr><td class="num">1</td><td>Threat models and the root of trust</td><td>1</td><td><span class="pill in_progress">in progress</span></td><td class="num">&ndash;</td></tr><tr><td class="num">2</td><td>Cryptography for firmware engineers</td><td>2-3</td><td><span class="pill locked">locked</span></td><td class="num">&ndash;</td></tr><tr><td class="num">3</td><td>The open-source security stack</td><td>4</td><td><span class="pill locked">locked</span></td><td class="num">&ndash;</td></tr><tr><td class="num">4</td><td>Secure boot mechanics</td><td>5-6</td><td><span class="pill locked">locked</span></td><td class="num">&ndash;</td></tr><tr><td class="num">5</td><td>ARM security architecture</td><td>7</td><td><span class="pill locked">locked</span></td><td class="num">&ndash;</td></tr><tr><td class="num">6</td><td>The ARM boot chain in practice</td><td>8</td><td><span class="pill locked">locked</span></td><td class="num">&ndash;</td></tr><tr><td class="num">7</td><td>Trusted execution environments</td><td>9</td><td><span class="pill locked">locked</span></td><td class="num">&ndash;</td></tr><tr><td class="num">8</td><td>Hardware security blocks</td><td>10</td><td><span class="pill locked">locked</span></td><td class="num">&ndash;</td></tr><tr><td class="num">9</td><td>Attestation and device identity</td><td>11</td><td><span class="pill locked">locked</span></td><td class="num">&ndash;</td></tr><tr><td class="num">10</td><td>Secure update and key management</td><td>12</td><td><span class="pill locked">locked</span></td><td class="num">&ndash;</td></tr><tr><td class="num">11</td><td>Attacking the chain</td><td>13</td><td><span class="pill locked">locked</span></td><td class="num">&ndash;</td></tr><tr><td class="num">12</td><td>Standards and certification</td><td>14</td><td><span class="pill locked">locked</span></td><td class="num">&ndash;</td></tr><tr><td class="num">13</td><td>Capstone and interview craft</td><td>15-16</td><td><span class="pill locked">locked</span></td><td class="num">&ndash;</td></tr></tbody></table></div>
+<h2 id="scores">Grill average per module</h2>
+<div class="scroll"><svg viewBox="0 0 700 250" width="100%" style="min-width:560px;max-width:700px" role="img" aria-labelledby="chart-title"><title id="chart-title">Grill score average per module, 0 to 3</title><line x1="36" x2="688" y1="210.0" y2="210.0" stroke="var(--border)" stroke-width="1"/><text x="28" y="214.0" text-anchor="end" font-size="11">0</text><line x1="36" x2="688" y1="145.3" y2="145.3" stroke="var(--border)" stroke-width="1"/><text x="28" y="149.3" text-anchor="end" font-size="11">1</text><line x1="36" x2="688" y1="80.7" y2="80.7" stroke="var(--border)" stroke-width="1"/><text x="28" y="84.7" text-anchor="end" font-size="11">2</text><line x1="36" x2="688" y1="16.0" y2="16.0" stroke="var(--border)" stroke-width="1"/><text x="28" y="20.0" text-anchor="end" font-size="11">3</text><line x1="36" x2="688" y1="48.3" y2="48.3" stroke="var(--warn)" stroke-width="1.5" stroke-dasharray="5 4"/><text x="688" y="43.3" text-anchor="end" font-size="11">gate 2.5</text><text x="61.1" y="226" text-anchor="middle" font-size="11">M1</text><text x="61.1" y="206" text-anchor="middle" font-size="11" fill="var(--muted)">&ndash;</text><text x="111.2" y="226" text-anchor="middle" font-size="11">M2</text><text x="111.2" y="206" text-anchor="middle" font-size="11" fill="var(--muted)">&ndash;</text><text x="161.4" y="226" text-anchor="middle" font-size="11">M3</text><text x="161.4" y="206" text-anchor="middle" font-size="11" fill="var(--muted)">&ndash;</text><text x="211.5" y="226" text-anchor="middle" font-size="11">M4</text><text x="211.5" y="206" text-anchor="middle" font-size="11" fill="var(--muted)">&ndash;</text><text x="261.7" y="226" text-anchor="middle" font-size="11">M5</text><text x="261.7" y="206" text-anchor="middle" font-size="11" fill="var(--muted)">&ndash;</text><text x="311.8" y="226" text-anchor="middle" font-size="11">M6</text><text x="311.8" y="206" text-anchor="middle" font-size="11" fill="var(--muted)">&ndash;</text><text x="362.0" y="226" text-anchor="middle" font-size="11">M7</text><text x="362.0" y="206" text-anchor="middle" font-size="11" fill="var(--muted)">&ndash;</text><text x="412.2" y="226" text-anchor="middle" font-size="11">M8</text><text x="412.2" y="206" text-anchor="middle" font-size="11" fill="var(--muted)">&ndash;</text><text x="462.3" y="226" text-anchor="middle" font-size="11">M9</text><text x="462.3" y="206" text-anchor="middle" font-size="11" fill="var(--muted)">&ndash;</text><text x="512.5" y="226" text-anchor="middle" font-size="11">M10</text><text x="512.5" y="206" text-anchor="middle" font-size="11" fill="var(--muted)">&ndash;</text><text x="562.6" y="226" text-anchor="middle" font-size="11">M11</text><text x="562.6" y="206" text-anchor="middle" font-size="11" fill="var(--muted)">&ndash;</text><text x="612.8" y="226" text-anchor="middle" font-size="11">M12</text><text x="612.8" y="206" text-anchor="middle" font-size="11" fill="var(--muted)">&ndash;</text><text x="662.9" y="226" text-anchor="middle" font-size="11">M13</text><text x="662.9" y="206" text-anchor="middle" font-size="11" fill="var(--muted)">&ndash;</text><text x="36" y="244" font-size="11">Bars: mean grill score (repetition, oral exams and mocks excluded). Dashed line: the mastery gate.</text></svg></div>
+<h2 id="queue">Spaced-repetition queue</h2>
+<p>Anything scored below 3 comes back after 3, 10 and 30 days, until it scores 3 twice in a row.</p>
+<p class="empty">Queue is empty. Nothing has scored below 3 yet, because nothing has been graded yet.</p>
+<h2 id="labs">Labs</h2>
+<div class="scroll"><table><thead><tr><th>Lab</th><th class="num">Module</th><th>What it proves</th><th>Status</th></tr></thead><tbody><tr><td><a href="labs/lab-00-signing/README.md">lab-00-signing</a></td><td class="num">1</td><td>Key pairs, RSA-PSS signing, tamper detection, fuse hash</td><td><span class="pill not_started">not started</span></td></tr><tr><td><a href="labs/lab-01-header-verifier/README.md">lab-01-header-verifier</a></td><td class="num">1</td><td>C signed-image header verifier, then a TOCTOU exploit</td><td><span class="pill not_started">not started</span></td></tr></tbody></table></div>
+<h2 id="documents">Documents</h2>
+<h3>Course-wide</h3><ul><li><a href="docs/syllabus.html">Course Syllabus</a> <span class="meta">docs/syllabus.html</span></li><li><a href="docs/handbook.html">Secure Boot Handbook</a> <span class="meta">docs/handbook.html</span></li><li><a href="docs/glossary.html">Glossary</a> <span class="meta">docs/glossary.html</span></li></ul><h3>Module 1 &mdash; Threat models and the root of trust</h3><p class="empty">No documents yet.</p><h3>Module 2 &mdash; Cryptography for firmware engineers</h3><p class="empty">No documents yet.</p><h3>Module 3 &mdash; The open-source security stack</h3><p class="empty">No documents yet.</p><h3>Module 4 &mdash; Secure boot mechanics</h3><p class="empty">No documents yet.</p><h3>Module 5 &mdash; ARM security architecture</h3><p class="empty">No documents yet.</p><h3>Module 6 &mdash; The ARM boot chain in practice</h3><p class="empty">No documents yet.</p><h3>Module 7 &mdash; Trusted execution environments</h3><p class="empty">No documents yet.</p><h3>Module 8 &mdash; Hardware security blocks</h3><p class="empty">No documents yet.</p><h3>Module 9 &mdash; Attestation and device identity</h3><p class="empty">No documents yet.</p><h3>Module 10 &mdash; Secure update and key management</h3><p class="empty">No documents yet.</p><h3>Module 11 &mdash; Attacking the chain</h3><p class="empty">No documents yet.</p><h3>Module 12 &mdash; Standards and certification</h3><p class="empty">No documents yet.</p><h3>Module 13 &mdash; Capstone and interview craft</h3><p class="empty">No documents yet.</p><h3>Interview</h3><ul><li><a href="interview/company-notes.html">Target Company Notes</a> <span class="meta">interview/company-notes.html</span></li><li><a href="interview/question-bank.html">Interview Question Bank</a> <span class="meta">interview/question-bank.html</span></li></ul><h3>Mock interviews</h3><p class="empty">No documents yet.</p><h3>Progress</h3><ul><li><a href="progress/gaps.html">Weaknesses and Gaps</a> <span class="meta">progress/gaps.html</span></li><li><a href="progress/weekly-review.html">Weekly Reviews</a> <span class="meta">progress/weekly-review.html</span></li></ul>
+
+</main>
+</body>
+</html>

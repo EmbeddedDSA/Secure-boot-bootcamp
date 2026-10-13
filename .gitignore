@@ -1,0 +1,17 @@
+# Private and test key material: never committed. Regenerate with tools/gen-keys.sh.
+keys/
+*.key
+*.p12
+*.pfx
+
+# Build output
+build/
+out/
+*.o
+*.a
+*.elf
+*.bin
+!labs/**/fixtures/*.bin
+__pycache__/
+*.pyc
+progress/*.tmp

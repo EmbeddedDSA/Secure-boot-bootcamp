@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="description" content="Single growing reference covering all modules.">
+<title>Secure Boot Handbook</title>
+<style>
+:root {
+  --bg: #fbfaf7; --surface: #ffffff; --surface-2: #f1efe9; --border: #dcd8cf;
+  --text: #1d1c1a; --text-2: #4a4741; --muted: #77736b;
+  --accent: #1f5fae; --accent-soft: #e3ecf8;
+  --good: #2e7d32; --warn: #a15c00; --bad: #b3261e;
+  --locked: #8a867d; --code-bg: #f4f2ed;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #15161a; --surface: #1d1f24; --surface-2: #262930; --border: #363a43;
+    --text: #ebe9e4; --text-2: #c2bfb8; --muted: #8f8b83;
+    --accent: #7fb0f0; --accent-soft: #23314a;
+    --good: #7cc47f; --warn: #e3a64f; --bad: #f08a80;
+    --locked: #7a776f; --code-bg: #20232a;
+  }
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0; background: var(--bg); color: var(--text);
+  font: 16px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Arial, sans-serif;
+}
+main { max-width: 980px; margin: 0 auto; padding: 24px 16px 64px; }
+h1 { font-size: 1.9rem; line-height: 1.2; margin: 0 0 4px; }
+h2 { font-size: 1.35rem; margin: 40px 0 12px; padding-top: 8px; border-top: 1px solid var(--border); }
+h3 { font-size: 1.1rem; margin: 24px 0 8px; }
+a { color: var(--accent); }
+.meta { color: var(--muted); font-size: .9rem; margin: 0 0 16px; }
+.home { display: inline-block; margin-bottom: 16px; font-size: .9rem; }
+nav.toc { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 12px 16px; margin: 16px 0 8px; }
+nav.toc ol { margin: 4px 0 0; padding-left: 20px; }
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 14px 16px; margin: 12px 0; }
+.scroll { overflow-x: auto; max-width: 100%; }
+table { border-collapse: collapse; width: 100%; font-size: .95rem; }
+th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--border); vertical-align: top; }
+th { background: var(--surface-2); font-weight: 600; white-space: nowrap; }
+td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
+pre { background: var(--code-bg); border: 1px solid var(--border); border-radius: 6px; padding: 12px; overflow-x: auto; font-size: .88rem; line-height: 1.45; }
+code { font-family: ui-monospace, "Cascadia Code", "SF Mono", Menlo, Consolas, "DejaVu Sans Mono", monospace; font-size: .92em; }
+.pill { display: inline-block; padding: 1px 10px; border-radius: 999px; font-size: .8rem; font-weight: 600; border: 1px solid currentColor; white-space: nowrap; }
+.pill.locked { color: var(--locked); }
+.pill.in_progress { color: var(--warn); }
+.pill.passed { color: var(--good); }
+.pill.not_started { color: var(--locked); }
+.pill.complete { color: var(--good); }
+.pill.pending { color: var(--warn); }
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; }
+.stat { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 12px 14px; }
+.stat .k { color: var(--muted); font-size: .85rem; }
+.stat .v { font-size: 1.6rem; font-weight: 650; font-variant-numeric: tabular-nums; }
+.note { border-left: 3px solid var(--accent); background: var(--accent-soft); padding: 10px 14px; border-radius: 0 6px 6px 0; margin: 12px 0; }
+.empty { color: var(--muted); font-style: italic; }
+svg text { fill: var(--text-2); font-family: inherit; }
+</style>
+</head>
+<body>
+<main>
+<a class="home" href="../index.html">&larr; Back to dashboard (index.html)</a>
+<h1>Secure Boot Handbook</h1>
+<p class="meta">Last updated: 2026-10-14</p>
+<nav class="toc" aria-label="Contents"><strong>Contents</strong><ol><li><a href="#about">About this handbook</a></li><li><a href="#m1">Module 1 — Threat models and the root of trust</a></li><li><a href="#m2">Module 2 — Cryptography for firmware engineers</a></li><li><a href="#m3">Module 3 — The open-source security stack</a></li><li><a href="#m4">Module 4 — Secure boot mechanics</a></li><li><a href="#m5">Module 5 — ARM security architecture</a></li><li><a href="#m6">Module 6 — The ARM boot chain in practice</a></li><li><a href="#m7">Module 7 — Trusted execution environments</a></li><li><a href="#m8">Module 8 — Hardware security blocks</a></li><li><a href="#m9">Module 9 — Attestation and device identity</a></li><li><a href="#m10">Module 10 — Secure update and key management</a></li><li><a href="#m11">Module 11 — Attacking the chain</a></li><li><a href="#m12">Module 12 — Standards and certification</a></li><li><a href="#m13">Module 13 — Capstone and interview craft</a></li></ol></nav>
+<h2 id="about">About this handbook</h2><p>The single growing reference for the whole course: edited, structured notes, one section per module. Not a transcript. Each section links to the topic documents in that module's folder.</p><h2 id="m1">Module 1 — Threat models and the root of trust</h2><p class="empty">Written as this module is taught.</p><h2 id="m2">Module 2 — Cryptography for firmware engineers</h2><p class="empty">Written as this module is taught.</p><h2 id="m3">Module 3 — The open-source security stack</h2><p class="empty">Written as this module is taught.</p><h2 id="m4">Module 4 — Secure boot mechanics</h2><p class="empty">Written as this module is taught.</p><h2 id="m5">Module 5 — ARM security architecture</h2><p class="empty">Written as this module is taught.</p><h2 id="m6">Module 6 — The ARM boot chain in practice</h2><p class="empty">Written as this module is taught.</p><h2 id="m7">Module 7 — Trusted execution environments</h2><p class="empty">Written as this module is taught.</p><h2 id="m8">Module 8 — Hardware security blocks</h2><p class="empty">Written as this module is taught.</p><h2 id="m9">Module 9 — Attestation and device identity</h2><p class="empty">Written as this module is taught.</p><h2 id="m10">Module 10 — Secure update and key management</h2><p class="empty">Written as this module is taught.</p><h2 id="m11">Module 11 — Attacking the chain</h2><p class="empty">Written as this module is taught.</p><h2 id="m12">Module 12 — Standards and certification</h2><p class="empty">Written as this module is taught.</p><h2 id="m13">Module 13 — Capstone and interview craft</h2><p class="empty">Written as this module is taught.</p>
+</main>
+</body>
+</html>

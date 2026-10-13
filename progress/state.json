@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "modules": [
+    {"id": 1,  "slug": "module-01-threat-models",              "title": "Threat models and the root of trust",   "weeks": "1",     "status": "in_progress"},
+    {"id": 2,  "slug": "module-02-crypto",                     "title": "Cryptography for firmware engineers",   "weeks": "2-3",   "status": "locked"},
+    {"id": 3,  "slug": "module-03-security-stack",             "title": "The open-source security stack",        "weeks": "4",     "status": "locked"},
+    {"id": 4,  "slug": "module-04-secure-boot-mechanics",      "title": "Secure boot mechanics",                 "weeks": "5-6",   "status": "locked"},
+    {"id": 5,  "slug": "module-05-arm-security-architecture",  "title": "ARM security architecture",             "weeks": "7",     "status": "locked"},
+    {"id": 6,  "slug": "module-06-arm-boot-chain",             "title": "The ARM boot chain in practice",        "weeks": "8",     "status": "locked"},
+    {"id": 7,  "slug": "module-07-trusted-execution",          "title": "Trusted execution environments",        "weeks": "9",     "status": "locked"},
+    {"id": 8,  "slug": "module-08-hardware-security-blocks",   "title": "Hardware security blocks",              "weeks": "10",    "status": "locked"},
+    {"id": 9,  "slug": "module-09-attestation",                "title": "Attestation and device identity",       "weeks": "11",    "status": "locked"},
+    {"id": 10, "slug": "module-10-secure-update",              "title": "Secure update and key management",      "weeks": "12",    "status": "locked"},
+    {"id": 11, "slug": "module-11-attacking-the-chain",        "title": "Attacking the chain",                   "weeks": "13",    "status": "locked"},
+    {"id": 12, "slug": "module-12-standards",                  "title": "Standards and certification",           "weeks": "14",    "status": "locked"},
+    {"id": 13, "slug": "module-13-capstone",                   "title": "Capstone and interview craft",          "weeks": "15-16", "status": "locked"}
+  ],
+  "labs": [
+    {"id": "lab-00-signing", "module": 1, "title": "Key pairs, RSA-PSS signing, tamper detection, fuse hash", "status": "not_started"},
+    {"id": "lab-01-header-verifier", "module": 1, "title": "C signed-image header verifier, then a TOCTOU exploit", "status": "not_started"}
+  ]
+}

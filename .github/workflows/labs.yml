@@ -1,0 +1,26 @@
+name: labs
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build-and-verify:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install toolchain
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends \
+            build-essential openssl libssl-dev xxd
+
+      - name: Refuse committed private keys
+        run: tools/secret-scan.sh --tree
+
+      - name: Build and run every lab, compare against expected output
+        run: tools/run-labs.sh
+
+      - name: Dashboard generator still runs
+        run: python3 tools/build_site.py

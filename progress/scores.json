@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "course_start": "2026-10-14",
+  "scale": {
+    "0": "blank or no idea",
+    "1": "wrong direction",
+    "2": "right idea, wrong or missing detail",
+    "3": "would pass an interview"
+  },
+  "repetition_intervals_days": [3, 10, 30],
+  "entries": [],
+  "repetition_queue": [],
+  "oral_exams": []
+}
